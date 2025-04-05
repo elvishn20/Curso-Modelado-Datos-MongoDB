@@ -1,0 +1,20 @@
+use("platzi_store")
+
+db.stores.findOne({
+    storeId: "ST001"
+}) // Es una consulta a un documento que esta de forma referenciada.
+
+db.stores_details.findOne({
+    storeId: "ST001"
+})
+
+db.stores.aggregate([
+    {
+        $lookup: {
+            from: "stores_details", // Se dirige al documento donde se quiere hacer la consulta.
+            localField: "storeId", // El campo donde parte la consulta y en la cual tienen relacion.
+            foreignField: "storeId", // El campo donde se dirige la consulta al documento que se quiere ir.
+            as: "detail" // Aqui se deja la relacion resultante de la union de la consulta.
+        }
+    }
+])
