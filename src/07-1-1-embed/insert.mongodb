@@ -1,0 +1,18 @@
+use("platzi_store")
+
+db.users.insertOne({
+    email: "josue@gmail.com",
+    password: "deidiodosd",
+    role: "admin",
+    social_accounts: ['twitter', 'facebook'],
+    address: {
+        street: 'hn 891',
+        city: 'La Ceiba',
+        zip: '11221'
+    },
+    shipping_address: {
+        street: 'ar 234',
+        city: 'Cali',
+        zip: '12450'
+    }
+})

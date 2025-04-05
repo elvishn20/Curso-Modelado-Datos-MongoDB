@@ -1,0 +1,5 @@
+use("platzi_store")
+
+db.users.find({
+    "address.city": "Bogota"
+}) // Es una consulta a un subdocumento que esta de forma embebida.
